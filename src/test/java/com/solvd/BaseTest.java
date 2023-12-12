@@ -1,5 +1,6 @@
 package com.solvd;
 
+import com.solvd.utils.ConfigHelper;
 import com.solvd.utils.SessionPool;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
@@ -10,7 +11,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        driver.get("https://www.ebay.com/");
+        driver.get(ConfigHelper.getValue("URL"));
     }
 
     @AfterSuite
