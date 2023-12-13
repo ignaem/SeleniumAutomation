@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class SearchTests extends BaseTest {
+public class SearchTests extends AbstractTest {
     WebDriver driver = SessionPool.getInstance().getDriver();
     HomePageObject homePage = new HomePageObject(driver);
     SearchResultsPageObject searchResultsPage = new SearchResultsPageObject(driver);

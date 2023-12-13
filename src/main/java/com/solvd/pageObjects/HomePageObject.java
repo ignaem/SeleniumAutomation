@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePageObject extends BasePage {
+public class HomePageObject extends AbstractPage {
     @FindBy(id = "gh-ac")
     private WebElement searchBar;
     @FindBy(id = "gh-btn")
@@ -15,10 +15,10 @@ public class HomePageObject extends BasePage {
     }
 
     public void typeInSearchBar(String input) {
-        searchBar.sendKeys(input);
+        type(searchBar, input);
     }
 
     public void clickSearchButton() {
-        searchButton.click();
+        click(searchButton);
     }
 }

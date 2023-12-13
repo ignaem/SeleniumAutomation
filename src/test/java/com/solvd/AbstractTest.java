@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 
-public class BaseTest {
+public abstract class AbstractTest {
     protected WebDriver driver = SessionPool.getInstance().getDriver();
 
     @BeforeMethod

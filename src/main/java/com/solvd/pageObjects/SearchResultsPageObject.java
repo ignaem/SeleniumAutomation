@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class SearchResultsPageObject extends BasePage{
+public class SearchResultsPageObject extends AbstractPage {
     @FindBy(css = ".s-item__wrapper")
     private List<WebElement> productsList;
 
