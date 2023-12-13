@@ -20,5 +20,6 @@ public abstract class AbstractPage {
     public void type(WebElement element, String input) {
         System.out.println("Typing: '" + input + "' on element: " + element.toString());
         element.sendKeys(input);
+
     }
 }
