@@ -5,19 +5,32 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SessionPool {
-    private static SessionPool INSTANCE = new SessionPool();
+    private static ThreadLocal<SessionPool> instance = new ThreadLocal<>();
     private static Capabilities browserCapabilities = new ChromeOptions();
-    private static WebDriver driver = new RemoteWebDriver(browserCapabilities);
+    private List<WebDriver> driversList = new ArrayList<>();
 
-    private SessionPool(){
+    private SessionPool() {
     }
 
-    public static SessionPool getInstance(){
-        return INSTANCE;
+    public static synchronized SessionPool getInstance() {
+        if (instance.get() == null) {
+            instance.set(new SessionPool());
+        }
+        return instance.get();
     }
 
-    public WebDriver getDriver() {
+    public synchronized WebDriver getDriver() {
+        WebDriver driver = new RemoteWebDriver(browserCapabilities);
+        driversList.add(driver);
         return driver;
+    }
+
+    public synchronized void releaseDriver(WebDriver driver) {
+        driversList.remove(driver);
+        driver.quit();
     }
 }

@@ -4,13 +4,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePageObject extends AbstractPage {
+public class HomePage extends AbstractPage {
     @FindBy(id = "gh-ac")
     private WebElement searchBar;
     @FindBy(id = "gh-btn")
     private WebElement searchButton;
 
-    public HomePageObject(WebDriver driver) {
+    public HomePage(WebDriver driver) {
         super(driver);
     }
 

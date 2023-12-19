@@ -5,7 +5,8 @@ import java.util.Properties;
 
 public class ConfigHelper {
     private static final String TEST_DATA_PROPERTIES = "testData.properties";
-    public static String getValue(String key){
+
+    public static String getValue(String key) {
         Properties propAux = new Properties();
         String value;
         try {

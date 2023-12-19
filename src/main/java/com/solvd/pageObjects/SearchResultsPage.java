@@ -6,11 +6,11 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
 
-public class SearchResultsPageObject extends AbstractPage {
+public class SearchResultsPage extends AbstractPage {
     @FindBy(css = ".s-item__wrapper")
     private List<WebElement> productsList;
 
-    public SearchResultsPageObject(WebDriver driver) {
+    public SearchResultsPage(WebDriver driver) {
         super(driver);
     }
 
