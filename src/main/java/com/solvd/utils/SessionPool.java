@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SessionPool {
     private static ThreadLocal<SessionPool> instance = new ThreadLocal<>();
-    private static Capabilities browserCapabilities = new ChromeOptions();
+    //private static Capabilities browserCapabilities = new ChromeOptions();
     private List<WebDriver> driversList = new ArrayList<>();
 
     private SessionPool() {
@@ -24,6 +24,7 @@ public class SessionPool {
     }
 
     public synchronized WebDriver getDriver() {
+        Capabilities browserCapabilities = new ChromeOptions();
         WebDriver driver = new RemoteWebDriver(browserCapabilities);
         driversList.add(driver);
         return driver;

@@ -7,16 +7,16 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 public abstract class AbstractTest {
-    protected WebDriver driver;
+    protected ThreadLocal<WebDriver> driver = new ThreadLocal<>();
 
     @BeforeMethod
     public void setUp() {
-        this.driver = SessionPool.getInstance().getDriver();
-        driver.get(ConfigHelper.getValue("URL"));
+        this.driver.set(SessionPool.getInstance().getDriver());
+        this.driver.get().get(ConfigHelper.getValue("URL"));
     }
 
     @AfterMethod
     public void closeSession() {
-        SessionPool.getInstance().releaseDriver(this.driver);
+        SessionPool.getInstance().releaseDriver(this.driver.get());
     }
 }

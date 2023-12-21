@@ -1,5 +1,5 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Search test suite" parallel="methods" thread-count="5">
+<suite name="Search test suite" parallel="methods">
     <test name="Basic search tests">
         <classes>
             <class name="com.solvd.SearchTests"/>

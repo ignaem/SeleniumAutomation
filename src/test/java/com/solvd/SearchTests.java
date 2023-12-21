@@ -11,8 +11,8 @@ public class SearchTests extends AbstractTest {
 
     @Test
     public void mockTest() {
-        HomePage homePage = new HomePage(driver);
-        SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
+        HomePage homePage = new HomePage(driver.get());
+        SearchResultsPage searchResultsPage = new SearchResultsPage(driver.get());
         homePage.typeInSearchBar(ConfigHelper.getValue("SEARCH_STRING"));
         homePage.clickSearchButton();
         int amountOfProducts = searchResultsPage.getAmountOfProducts();
@@ -21,8 +21,8 @@ public class SearchTests extends AbstractTest {
 
     @Test
     public void mockTestTheSecond() {
-        HomePage homePage = new HomePage(driver);
-        SearchResultsPage searchResultsPage = new SearchResultsPage(driver);
+        HomePage homePage = new HomePage(driver.get());
+        SearchResultsPage searchResultsPage = new SearchResultsPage(driver.get());
         homePage.typeInSearchBar(ConfigHelper.getValue("SEARCH_STRING"));
         homePage.clickSearchButton();
         int amountOfProducts = searchResultsPage.getAmountOfProducts();
