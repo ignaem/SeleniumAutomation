@@ -9,6 +9,8 @@ import java.util.List;
 public class SearchResultsPage extends AbstractPage {
     @FindBy(css = ".s-item__wrapper")
     private List<WebElement> productsList;
+    @FindBy(css = ".s-item__title")
+    private List<WebElement> productTitlesList;
 
     public SearchResultsPage(WebDriver driver) {
         super(driver);
@@ -16,5 +18,16 @@ public class SearchResultsPage extends AbstractPage {
 
     public int getAmountOfProducts() {
         return productsList.size();
+    }
+
+    public void clickFirstProduct() {
+        click(productTitlesList.get(1));
+    }
+
+    public String getFirstProductTitle() {
+        return getTextFromElement(productTitlesList.get(1));
+    }
+    public List<WebElement> getProductTitlesList() {
+        return productTitlesList;
     }
 }
